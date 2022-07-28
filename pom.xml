@@ -15,6 +15,7 @@
         <module>hw4</module>
         <module>hw5</module>
         <module>hw7</module>
+        <module>HW_OOP</module>
     </modules>
 
     <properties>
@@ -22,7 +23,35 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+        <slf4j.version>1.7.30</slf4j.version>
+        <logback.version>1.2.3</logback.version>
+        <logs.folder>logs</logs.folder>
+        <logs.test.folder>test</logs.test.folder>
+        <logs.life.folder>life</logs.life.folder>
     </properties>
+    <profiles>
+        <profile>
+            <id>test</id>
+            <properties>
+                <log.path>${logs.folder}/${logs.test.folder}</log.path>
+                <log.info>${log.path}/info.log</log.info>
+                <log.warn>${log.path}/warn.log</log.warn>
+                <log.error>${log.path}/error.log</log.error>
+            </properties>
+        </profile>
+        <profile>
+            <id>life</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <log.path>${logs.folder}/${logs.life.folder}</log.path>
+                <log.info>${log.path}/info.log</log.info>
+                <log.warn>${log.path}/warn.log</log.warn>
+                <log.error>${log.path}/error.log</log.error>
+            </properties>
+        </profile>
+    </profiles>
 
     <build>
         <finalName>hw1</finalName>
@@ -54,6 +83,22 @@
             <artifactId>junit-jupiter-api</artifactId>
             <version>5.8.2</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>${logback.version}</version>
         </dependency>
     </dependencies>
 
