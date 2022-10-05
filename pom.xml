@@ -21,6 +21,7 @@
         <module>hw_17_18</module>
         <module>hw_19</module>
         <module>hw_21_22</module>
+        <module>hw_25_26</module>
     </modules>
 
     <properties>
@@ -132,6 +133,11 @@
             <artifactId>junit-jupiter-params</artifactId>
             <version>5.8.2</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.orm</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>6.1.3.Final</version>
         </dependency>
     </dependencies>
 
